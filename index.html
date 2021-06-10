@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Que hora es?</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <style>
+    :root {
+      --sky: #00d6d2;
+      --skin: #ffcda2;
+      --shirt: #4373df;
+    }
+
+    /* body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+
+    } */
+
+    .canvas {
+      display: flex;
+      background-color: var(--sky);
+      height: 100vh;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .finn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: scale(0.6) translateY(-12em);
+    }
+
+    .head {
+      height: 14em;
+      width: 14em;
+      position: relative;
+    }
+
+    .hat,
+    .hat_ear {
+      background-color: white;
+    }
+
+    .hat {
+      position: absolute;
+      height: 9em;
+      width: 14em;
+      bottom: 2em;
+      right: 0em;
+      left: 0em;
+      border-radius: 50% 50% 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hat::after {
+      content: '';
+      background-color: white;
+      height: 2em;
+      width: 14em;
+      position: absolute;
+      top: 100%;
+    }
+
+    .hat_ear {
+      height: 8em;
+      width: 4em;
+      position: absolute;
+      top: 1em;
+    }
+
+    /* .hat_ear::after {
+      content: '';
+      background-color: white;
+      height: 3em;
+      width: 4em;
+      top: 100%;
+      position: absolute;
+    } */
+
+    .hat_ear:nth-of-type(1) {
+      left: 0;
+      border-radius: 50em 50em 50em 0;
+    }
+
+    .hat_ear:nth-of-type(2) {
+      right: 0;
+      border-radius: 50em 50em 0 50em;
+    }
+
+    .face {
+      background-color: var(--skin);
+      height: 5.5em;
+      width: 11em;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .eye {
+      background-color: black;
+      height: 0.6em;
+      width: 0.6em;
+      border-radius: 50%;
+      position: absolute;
+      top: 2em;
+    }
+
+    .eye:nth-of-type(1) {
+      left: 2em;
+    }
+
+    .eye:nth-of-type(2) {
+      right: 2em;
+    }
+
+    .mouth {
+      position: absolute;
+      height: 1em;
+      width: 3em;
+      border-radius: 50%;
+      bottom: 1em;
+      left: 4em;
+      border-bottom: solid 3px black;
+    }
+
+    .body {
+      position: relative;
+      height: 14em;
+      width: 17em;
+    }
+
+    .shirt {
+      position: absolute;
+      height: 14em;
+      width: 13em;
+      background-color: var(--shirt);
+      left: 2em;
+    }
+
+    .arm {
+      position: absolute;
+      height: 14em;
+      width: 3em;
+      background: linear-gradient(var(--shirt) 50%, var(--skin) 50%);
+    }
+
+    .arm:nth-of-type(1){
+      border-radius: 1em 0 0 0;
+      left: -1em;
+    }
+
+    .arm:nth-of-type(2){
+      border-radius: 0 1em 0 0;
+      right: -1em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="canvas">
+    <div class="finn">
+
+      <div class="head">
+        <div class="hat_ear"></div>
+        <div class="hat_ear"></div>
+        <div class="hat">
+          <div class="face">
+            <div class="eye"></div>
+            <div class="eye"></div>
+            <div class="mouth"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="body">
+        <div class="arm"></div>
+        <div class="arm"></div>
+        <div class="shirt"></div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
