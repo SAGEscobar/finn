@@ -12,6 +12,10 @@
       --sky: #00d6d2;
       --skin: #ffcda2;
       --shirt: #4373df;
+      --short: #0056ad;
+      --back_mt: #9be545;
+      --middle_mt: #8ed15e;
+      --front_mt: #9dc854;
     }
 
     /* body{
@@ -27,10 +31,12 @@
       display: flex;
       background-color: var(--sky);
       height: 100vh;
-      width: 100vw;
+      width: 100%;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
+      z-index: -7;
     }
 
     .finn {
@@ -38,13 +44,85 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transform: scale(0.6) translateY(-12em);
+      position: absolute;
+      bottom: -12em;
+      transform: translateY(12em);
+      animation: finnAnimation 1s forwards;
+      animation-delay: 4s;
+    }
+
+    @keyframes finnAnimation {
+      0% {
+        transform: translateY(12em);
+      }
+
+      100% {
+        transform: scale(0.2) translateY(-6em);
+      }
+    }
+
+    .finn::after {
+      content: '';
+      height: 6em;
+      width: 23em;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      bottom: -4.9em;
+      border-radius: 50%;
+      z-index: -1;
     }
 
     .head {
       height: 14em;
       width: 14em;
       position: relative;
+    }
+
+    .head::before{
+      content: '';
+      background: linear-gradient(40deg ,white 36%, transparent 36%);
+      height: 1.5em;
+      width: 9em;
+      border-radius: 50%;
+      position: absolute;
+      transform: rotate(-30deg);
+      right: -12em;
+      top: .5em;
+      opacity: 0;
+    }
+
+    .head::after{
+      content: '¿Que hora es?';
+      background-color: white;
+      font-size: 1.4em;
+      font-weight: 900;
+      padding: 1em 2em;
+      border-radius: 50%;
+      position: absolute;
+      right: -12em;
+      top: -1.5em;
+      opacity: 0;
+    }
+
+    .head::before,
+    .head::after{
+      animation: dialog 2.5s forwards ;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes dialog{
+      0%{
+        opacity: 0;
+      }
+      25%{
+        opacity: 1;
+      }
+      90%{
+        opacity: 1;
+      }
+      100%{
+        opacity: 0;
+      }
     }
 
     .hat,
@@ -133,43 +211,304 @@
       bottom: 1em;
       left: 4em;
       border-bottom: solid 3px black;
+      animation: mouthAnimation 2.5s forwards;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes mouthAnimation {
+      0%, 25%, 50%, 75%, 100% {
+        border: none;
+        background-color: transparent;
+        border-bottom: solid 3px black;
+      }
+
+      12%, 37%, 62%, 87% {
+        background-color: #F99FA1;
+        border: solid 3px black;
+      }
     }
 
     .body {
       position: relative;
-      height: 14em;
+      height: 40em;
       width: 17em;
     }
 
     .shirt {
       position: absolute;
-      height: 14em;
+      height: 20em;
       width: 13em;
-      background-color: var(--shirt);
+      background: linear-gradient(var(--shirt) 80%, var(--short) 80%);
       left: 2em;
     }
 
-    .arm {
+    .arm,
+    .leg {
       position: absolute;
-      height: 14em;
+      height: 20em;
       width: 3em;
-      background: linear-gradient(var(--shirt) 50%, var(--skin) 50%);
     }
 
-    .arm:nth-of-type(1){
-      border-radius: 1em 0 0 0;
+    .arm {
+      background: linear-gradient(var(--shirt) 30%, var(--skin) 30%);
+    }
+
+    .arm:nth-of-type(1) {
+      border-radius: 1em 0 1.2em 1.2em;
       left: -1em;
     }
 
-    .arm:nth-of-type(2){
-      border-radius: 0 1em 0 0;
+    .arm:nth-of-type(2) {
+      border-radius: 0 1em 1.2em 1.2em;
       right: -1em;
+      animation: armAnimation .3s forwards;
+      animation-delay: 4s;
+    }
+
+    @keyframes armAnimation{
+      0% {
+        transform:  rotateZ(0) translateY(0) translateX(0);
+      }
+      12%{
+        transform:  rotateZ(-0.04turn) translateY(0em) translateX(1.2em);
+      }
+      25%{
+        transform:  rotateZ(-0.08turn) translateY(1em) translateX(2.6em);
+      }
+      37%{
+        transform:  rotateZ(-0.13turn) translateY(1.9em) translateX(5em);
+      }
+      50%{
+        transform:  rotateZ(-0.17turn) translateY(3.9em) translateX(6.7em);
+      }
+      62%{
+        transform:  rotateZ(-0.21turn) translateY(6em) translateX(8em);
+      }
+      75%{
+        transform:  rotateZ(-0.26turn) translateY(8.7em) translateX(8.5em);
+      }
+      87%{
+        transform:  rotateZ(-0.30turn) translateY(10.4em) translateX(8.4em);
+      }
+      100%{
+        transform: rotateZ(-0.35turn) translateY(12em) translateX(7.5em);
+      }
+    }
+
+    .finger {
+      background-color: var(--skin);
+      height: 2.5em;
+      width: 0.8em;
+      border-radius: 1em 1em 1em 1em;
+      position: absolute;
+    }
+
+    .finger:nth-of-type(1) {
+      right: 0em;
+      bottom: -1.3em;
+    }
+
+    .finger:nth-of-type(2) {
+      right: 1.1em;
+      bottom: -1.5em;
+    }
+
+    .finger:nth-of-type(3) {
+      left: 0em;
+      bottom: -1.3em;
+    }
+
+    .leg {
+      top: 20em;
+      background: linear-gradient(var(--short) 30%, var(--skin) 30%);
+    }
+
+    .leg:nth-of-type(6) {
+      left: 2em;
+    }
+
+    .leg:nth-of-type(7) {
+      right: 2em;
+    }
+
+    .sock {
+      position: absolute;
+      width: 4em;
+      height: 1.7em;
+      background-color: white;
+      top: 39em;
+      border-radius: 50em;
+    }
+
+    .sock:nth-of-type(4) {
+      left: 1.5em;
+    }
+
+    .sock:nth-of-type(5) {
+      right: 1.5em;
+    }
+
+    .shoe {
+      position: absolute;
+      background-color: black;
+      width: 3em;
+      height: 2.3em;
+      top: 40em;
+      z-index: -1;
+    }
+
+    .shoe:nth-of-type(8) {
+      left: 2em;
+    }
+
+    .shoe:nth-of-type(8)::after,
+    .shoe:nth-of-type(9)::after {
+      content: '';
+      height: 2em;
+      width: 6em;
+      position: absolute;
+      background-color: black;
+      bottom: -1em;
+      border-radius: 50em;
+    }
+
+    .shoe:nth-of-type(8)::after {
+      right: 0;
+    }
+
+    .shoe:nth-of-type(9) {
+      right: 2em;
+    }
+
+    .shoe:nth-of-type(9)::after {
+      left: 0;
+    }
+
+    .background {
+      height: 26em;
+      width: 80em;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(26.3em);
+      animation: backgroundCloseOut 1s forwards;
+      animation-delay: 4s;
+    }
+
+    @keyframes backgroundCloseOut {
+      0% {
+        transform: translateY(26.3em);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+
+    .back_mountain,
+    .middle_mountain,
+    .front_mountain {
+      height: 30em;
+      width: 80em;
+    }
+
+    .back_mountain * {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--back_mt);
+      z-index: -6;
+    }
+
+    .bm_mt1 {
+      left: -6em;
+      top: 0;
+      width: 80em;
+      height: 20em;
+    }
+
+    .bm_mt2 {
+      right: -20em;
+      top: -0.2em;
+      width: 80em;
+      height: 18.5em;
+    }
+
+    .middle_mountain * {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--middle_mt);
+      z-index: -4;
+    }
+
+    .mm_mt1 {
+      left: -20em;
+      top: 3em;
+      width: 80em;
+      height: 25em;
+    }
+
+    .mm_mt2 {
+      right: -15em;
+      top: 4em;
+      width: 60em;
+      height: 25em;
+    }
+
+    .front_mountain * {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--front_mt);
+    }
+
+    .fm_mt1 {
+      left: -10em;
+      top: 8em;
+      width: 50em;
+      height: 30em;
+    }
+
+    .fm_mt2 {
+      right: -11em;
+      top: 4em;
+      width: 30em;
+      height: 8em;
+      z-index: -2;
+      transform: rotate(-20deg);
+    }
+
+    .fm_mt3 {
+      right: -20em;
+      top: 6em;
+      width: 80em;
+      height: 40em;
+      z-index: -2;
+      transform: rotate(0deg);
     }
   </style>
 </head>
 
 <body>
   <div class="canvas">
+
+    <div class="background">
+
+      <div class="back_mountain">
+        <div class="bm_mt1"></div>
+        <div class="bm_mt2"></div>
+      </div>
+
+      <div class="middle_mountain">
+        <div class="mm_mt1"></div>
+        <div class="mm_mt2"></div>
+      </div>
+
+      <div class="front_mountain">
+        <div class="fm_mt1"></div>
+        <div class="fm_mt2"></div>
+        <div class="fm_mt3"></div>
+      </div>
+    </div>
+
     <div class="finn">
 
       <div class="head">
@@ -186,9 +525,27 @@
       </div>
 
       <div class="body">
-        <div class="arm"></div>
-        <div class="arm"></div>
+        <div class="arm">
+          <div class="finger"></div>
+          <div class="finger"></div>
+          <div class="finger"></div>
+        </div>
+        <div class="arm">
+          <div class="finger"></div>
+          <div class="finger"></div>
+          <div class="finger"></div>
+        </div>
         <div class="shirt"></div>
+
+        <div class="sock"></div>
+        <div class="sock"></div>
+
+        <div class="leg"></div>
+        <div class="leg"></div>
+
+
+        <div class="shoe"></div>
+        <div class="shoe"></div>
       </div>
 
     </div>
