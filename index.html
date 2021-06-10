@@ -9,13 +9,17 @@
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <style>
     :root {
-      --sky: #00d6d2;
+      --sky: #61D9FE;
       --skin: #ffcda2;
       --shirt: #4373df;
       --short: #0056ad;
       --back_mt: #9be545;
       --middle_mt: #8ed15e;
       --front_mt: #9dc854;
+      --leaf: #1F5E3F;
+      --c_caparazon: #A25643;
+      --c_cuerpo: #E6CB87;
+      --jake: #FEB925;
     }
 
     /* body{
@@ -40,7 +44,7 @@
     }
 
     .finn {
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -78,9 +82,9 @@
       position: relative;
     }
 
-    .head::before{
+    .head::before {
       content: '';
-      background: linear-gradient(40deg ,white 36%, transparent 36%);
+      background: linear-gradient(40deg, white 36%, transparent 36%);
       height: 1.5em;
       width: 9em;
       border-radius: 50%;
@@ -91,7 +95,7 @@
       opacity: 0;
     }
 
-    .head::after{
+    .head::after {
       content: '¿Que hora es?';
       background-color: white;
       font-size: 1.4em;
@@ -105,22 +109,25 @@
     }
 
     .head::before,
-    .head::after{
-      animation: dialog 2.5s forwards ;
+    .head::after {
+      animation: dialog 2.5s forwards;
       animation-delay: 1.5s;
     }
 
-    @keyframes dialog{
-      0%{
+    @keyframes dialog {
+      0% {
         opacity: 0;
       }
-      25%{
+
+      25% {
         opacity: 1;
       }
-      90%{
+
+      90% {
         opacity: 1;
       }
-      100%{
+
+      100% {
         opacity: 0;
       }
     }
@@ -216,13 +223,21 @@
     }
 
     @keyframes mouthAnimation {
-      0%, 25%, 50%, 75%, 100% {
+
+      0%,
+      25%,
+      50%,
+      75%,
+      100% {
         border: none;
         background-color: transparent;
         border-bottom: solid 3px black;
       }
 
-      12%, 37%, 62%, 87% {
+      12%,
+      37%,
+      62%,
+      87% {
         background-color: #F99FA1;
         border: solid 3px black;
       }
@@ -265,32 +280,40 @@
       animation-delay: 4s;
     }
 
-    @keyframes armAnimation{
+    @keyframes armAnimation {
       0% {
-        transform:  rotateZ(0) translateY(0) translateX(0);
+        transform: rotateZ(0) translateY(0) translateX(0);
       }
-      12%{
-        transform:  rotateZ(-0.04turn) translateY(0em) translateX(1.2em);
+
+      12% {
+        transform: rotateZ(-0.04turn) translateY(0em) translateX(1.2em);
       }
-      25%{
-        transform:  rotateZ(-0.08turn) translateY(1em) translateX(2.6em);
+
+      25% {
+        transform: rotateZ(-0.08turn) translateY(1em) translateX(2.6em);
       }
-      37%{
-        transform:  rotateZ(-0.13turn) translateY(1.9em) translateX(5em);
+
+      37% {
+        transform: rotateZ(-0.13turn) translateY(1.9em) translateX(5em);
       }
-      50%{
-        transform:  rotateZ(-0.17turn) translateY(3.9em) translateX(6.7em);
+
+      50% {
+        transform: rotateZ(-0.17turn) translateY(3.9em) translateX(6.7em);
       }
-      62%{
-        transform:  rotateZ(-0.21turn) translateY(6em) translateX(8em);
+
+      62% {
+        transform: rotateZ(-0.21turn) translateY(6em) translateX(8em);
       }
-      75%{
-        transform:  rotateZ(-0.26turn) translateY(8.7em) translateX(8.5em);
+
+      75% {
+        transform: rotateZ(-0.26turn) translateY(8.7em) translateX(8.5em);
       }
-      87%{
-        transform:  rotateZ(-0.30turn) translateY(10.4em) translateX(8.4em);
+
+      87% {
+        transform: rotateZ(-0.30turn) translateY(10.4em) translateX(8.4em);
       }
-      100%{
+
+      100% {
         transform: rotateZ(-0.35turn) translateY(12em) translateX(7.5em);
       }
     }
@@ -303,7 +326,8 @@
       position: absolute;
     }
 
-    .finger:nth-of-type(1) {
+    .finger:nth-of-type(1),
+    .finger:nth-of-type(3) {
       right: 0em;
       bottom: -1.3em;
     }
@@ -311,11 +335,6 @@
     .finger:nth-of-type(2) {
       right: 1.1em;
       bottom: -1.5em;
-    }
-
-    .finger:nth-of-type(3) {
-      left: 0em;
-      bottom: -1.3em;
     }
 
     .leg {
@@ -389,21 +408,33 @@
       width: 80em;
       position: absolute;
       bottom: 0;
-      transform: translateY(26.3em);
+      transform: translateY(40em) scale(2);
       animation: backgroundCloseOut 1s forwards;
       animation-delay: 4s;
     }
 
     @keyframes backgroundCloseOut {
       0% {
-        transform: translateY(26.3em);
+        transform: translateY(40em) scale(2);
       }
 
       100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
+    .house {
+      background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ac4257f1-2f82-40fc-8fed-a2e14c7c6400/d9m8qsw-890f42af-72c3-406f-a417-f78adc85f576.jpg/v1/fill/w_1024,h_747,q_75,strp/hora_de_aventura_casa_del_arbol_de_finn_y_jake_by_frankro_d9m8qsw-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzQ3IiwicGF0aCI6IlwvZlwvYWM0MjU3ZjEtMmY4Mi00MGZjLThmZWQtYTJlMTRjN2M2NDAwXC9kOW04cXN3LTg5MGY0MmFmLTcyYzMtNDA2Zi1hNDE3LWY3OGFkYzg1ZjU3Ni5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.HXiD-s51SUI02b3b-gAEmiv3twtJJHjQaoHkyyjx1Lg');
+      height: 9em;
+      width: 6.25em;
+      position: absolute;
+      background-position: -2.5em -.9em;
+      background-size: 13em 13em;
+      top: -7.5em;
+      right: 10.5em;
+      z-index: -6;
+      background-repeat: no-repeat;
+    }
 
     .back_mountain,
     .middle_mountain,
@@ -484,13 +515,447 @@
       z-index: -2;
       transform: rotate(0deg);
     }
+
+    .tree {
+      height: 13em;
+      width: 20em;
+      position: absolute;
+      z-index: 0;
+      bottom: -4em;
+      right: 10em;
+    }
+
+    .tree .leaf {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--leaf);
+      z-index: -2;
+    }
+
+    .leaf:nth-of-type(1) {
+      height: 8em;
+      width: 13em;
+      top: 0em;
+      right: -2em;
+      z-index: 0;
+    }
+
+    .leaf:nth-of-type(2) {
+      height: 5em;
+      width: 8em;
+      top: 2em;
+      right: 8em;
+      z-index: 0;
+    }
+
+    .leaf:nth-of-type(3) {
+      height: 5em;
+      width: 8em;
+      top: 3em;
+      right: 0em;
+      z-index: 0;
+    }
+
+    .leaf:nth-of-type(4) {
+      height: 5em;
+      width: 13em;
+      top: 4.5em;
+      right: 8em;
+      z-index: 0;
+      transform: rotate(-10deg);
+    }
+
+    .leaf:nth-of-type(5) {
+      height: 10em;
+      width: 25em;
+      bottom: 0em;
+      right: -6em;
+      z-index: 0;
+    }
+
+    .caracol {
+      height: 30em;
+      width: 30em;
+      position: absolute;
+      top: -16em;
+      transform: scale(0.2);
+    }
+
+    .caparazon * {
+      background-color: var(--c_caparazon);
+      position: absolute;
+    }
+
+    .cc_shape:nth-of-type(1) {
+      height: 4em;
+      width: 18em;
+      bottom: 3em;
+      right: 1em;
+      border-radius: 2em 50% 50% 2em;
+      border-bottom: solid 2px black;
+      border-right: solid 2px black;
+      transform: rotate(-1deg);
+    }
+
+    .cc_shape:nth-of-type(2) {
+      height: 15em;
+      width: 16em;
+      bottom: 4em;
+      right: 1em;
+      border-radius: 40em 60em 40em 40em;
+      border-top: solid 2px black;
+      border-right: solid 2px black;
+    }
+
+    .cc_shape:nth-of-type(3) {
+      height: 10em;
+      width: 7em;
+      bottom: 4em;
+      right: 4.3em;
+      border-radius: 50%;
+      border-top: solid 2px black;
+      border-left: solid 2px black;
+    }
+
+    .cc_shape:nth-of-type(4) {
+      height: 5em;
+      width: 3.5em;
+      bottom: 7em;
+      right: 4.5em;
+      border-radius: 10em 40em 50em 10em;
+      border-bottom: solid 2px black;
+      border-right: solid 2px black;
+      transform: rotate(100deg) translate(1em, .7em);
+    }
+
+    .cc_shape:nth-of-type(5) {
+      height: 10em;
+      width: 4em;
+      bottom: 3em;
+      right: 15.3em;
+      border-radius: 2em 50% 50% 2em;
+      border-top: solid 2px black;
+      border-left: solid 2px black;
+      transform: rotate(-1deg);
+    }
+
+    .c_cuerpo * {
+      background-color: var(--c_cuerpo);
+      position: absolute;
+    }
+
+    .cc_base:nth-of-type(2) {
+      height: 6em;
+      width: 10em;
+      bottom: 4em;
+      right: 17.5em;
+      border-radius: 4em 50% 50% 50%;
+      border-bottom: solid 2px black;
+      transform: rotate(-1deg);
+    }
+
+    .cc_base:nth-of-type(1) {
+      height: 20em;
+      width: 8em;
+      bottom: 4.3em;
+      left: 2.8em;
+      border-radius: 25em 25em 10em 20em;
+      border-top: solid 2px black;
+      border-left: solid 2px black;
+      border-right: solid 2px black;
+      transform: rotate(-1deg);
+      transform: rotate(5deg);
+    }
+
+    .ojo {
+      background-color: black;
+      height: .6em;
+      width: .6em;
+      position: absolute;
+      border-radius: 45%;
+    }
+
+    .ojo:nth-of-type(3) {
+      top: 4em;
+      left: 1.6em;
+    }
+
+    .ojo:nth-of-type(4) {
+      top: 4em;
+      right: 1.6em;
+    }
+
+    .boca {
+      background-color: transparent;
+      height: .6em;
+      width: 2em;
+      position: absolute;
+      border-radius: 45%;
+      border-bottom: solid 2px black;
+      top: 5em;
+      right: 3.1em;
+    }
+
+    .antena {
+      height: 5em;
+      width: .7em;
+      position: absolute;
+      border-radius: 45% 45% 0 0;
+      border-left: solid 2px black;
+      border-right: solid 2px black;
+    }
+
+    .antena::after {
+      content: '';
+      position: absolute;
+      background-color: var(--c_cuerpo);
+      height: .7em;
+      width: 1.4em;
+      border-radius: 47%;
+      border-top: solid 2px black;
+      border-left: solid 2px black;
+      border-right: solid 2px black;
+      left: -.4em;
+    }
+
+    .antena:nth-of-type(1) {
+      top: -4.4em;
+      left: 1.3em;
+      transform: rotate(-12deg);
+    }
+
+    .antena:nth-of-type(2) {
+      top: -4.4em;
+      right: 1.3em;
+      transform: rotate(12deg);
+    }
+
+    .brazo {
+      background-color: var(--c_cuerpo);
+      height: 4.5em;
+      width: 1.5em;
+      position: absolute;
+      border-radius: 0 0 20em 20em;
+      border-left: solid 2px black;
+      border-right: solid 2px black;
+      border-bottom: solid 2px black;
+      left: 8em;
+      bottom: 10em;
+      transform: rotate(-1deg);
+
+    }
+
+    .brazo:nth-of-type(1) {
+      height: 14em;
+      background: linear-gradient(transparent 50%, var(--c_cuerpo) 50%);
+      transform: rotate(160deg);
+      bottom: 7em;
+      left: 2.5em;
+      animation: caracolAnimation .7s ease-in-out infinite;
+    }
+
+    @keyframes caracolAnimation{
+      0%, 100%{
+        transform: rotate(160deg);
+      }
+      50%{
+        transform: rotate(135deg);
+      }
+    }
+
+    .jake{
+      position: absolute;
+      height: 13em;
+      width: 13em;
+      background-color: var(--jake);
+      border-radius: 45%;
+      top: -2em;
+      left: -2em;
+      transform: rotate(35deg) translate(-25em, -25em);
+      animation: jakeAnimation 1s forwards;
+      animation-delay: 4s;
+    }
+
+    @keyframes jakeAnimation{
+      0%{
+        transform: rotate(35deg) translate(-25em, -25em);
+      }
+      100%{
+        transform: rotate(35deg) translate(0, 0);
+      }
+    }
+
+    .j_ojo{
+      background-color: black;
+      height: 3em;
+      width: 3em;
+      border-radius: 1.4em;
+      position: absolute;
+    }
+
+    .j_ojo::after{
+      content: '';
+      background-color: white;
+      height: 2.5em;
+      width: 2.5em;
+      border-radius: 1.2em;
+      position: absolute;
+      bottom: 0.2em;
+      right: 0em;
+    }
+
+    .j_ojo:nth-of-type(1){
+      right: -0.2em;
+      top: 3em;
+    }
+
+    .j_ojo:nth-of-type(2){
+      right: 6em;
+      top: 3em;
+    }
+
+    .bigote{
+      background-color: var(--jake);
+      height: 1.5em;
+      width: 4.5em;
+      border-radius: 5em 5em 0 0;
+      position: absolute;
+      border-top: solid 3px black;
+      border-left: solid 3px black;
+      border-right: solid 3px black;
+      right: 2em;
+      top: 4.3em;
+    }
+
+    .bigote::before{
+      content: '';
+      background-color: var(--jake);
+      height: 2em;
+      width: 1.5em;
+      border-radius: 0 0 1.4em 1.6em;
+      position: absolute;
+      border-bottom: solid 3px black;
+      border-left: solid 3px black;
+      border-right: solid 3px black;
+      left: -3px;
+      top: 1.2em;
+    }
+    .bigote::after{
+      content: '';
+      background-color: var(--jake);
+      height: 2em;
+      width: 1.5em;
+      border-radius: 0 0 1.4em 1.6em;
+      position: absolute;
+      border-bottom: solid 3px black;
+      border-left: solid 3px black;
+      border-right: solid 3px black;
+      right: -3px;
+      top: 1.2em;
+    }
+
+    .nariz{
+      background-color: black;
+      height: 2em;
+      width: 2em;
+      border-radius: 1.4em;
+      position: absolute;
+      right: 3.4em;
+      top: 4.7em;
+    }
+
+    .j_boca{
+      background-color: transparent;
+      height: 1.5em;
+      width: 1.6em;
+      border-radius: 1.4em;
+      position: absolute;
+      border-bottom: solid 3px black;
+      right: 3.6em;
+      top: 6.4em;
+    }
+
+    .j_oreja{
+      background-color: transparent;
+      height: 2em;
+      width: 1.4em;
+      border-radius: 0 0 5em 5em;
+      position: absolute;
+      border-bottom: solid 3px black;
+      border-right: solid 2px black;
+      border-left: solid 2px black;
+      left: 1.5em;
+      top: 5.3em;
+    }
+
+    .rayo{
+      height: 1.5em;
+      width: 53em;
+      position: absolute;
+      left: -20em;
+      top: 6em;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 37%, transparent 37%, transparent 62%, rgba(255, 255, 255, 0.3) 62%);
+      animation: luz1 2.5s linear infinite;
+    }
+
+    .rayo::after{
+      content: '';
+      height: 1.5em;
+      width: 53em;
+      position: absolute;
+      left: 0em;
+      top: 0em;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 37%, transparent 37%, transparent 62%, rgba(255, 255, 255, 0.3) 62%);
+      transform: rotate(90deg);
+    }
+
+    .rayo:last-of-type{
+      transform: rotate(0.125turn);
+      animation: luz2 2.5s linear infinite;
+    }
+
+    @keyframes luz1{
+      0%{
+        transform: rotate(0);
+      }
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes luz2{
+      0%{
+        transform: rotate(0.125turn);
+      }
+      100%{
+        transform: rotate(1.125turn);
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="canvas">
 
+    <div class="jake">
+      <div class="j_ojo"></div>
+      <div class="j_ojo"></div>
+
+      <div class="bigote"></div>
+
+      <div class="j_boca"></div>
+
+      <div class="nariz"></div>
+
+      <div class="j_oreja"></div>
+
+      <div class="rayo"></div>
+      <div class="rayo"></div>
+    </div>
+
     <div class="background">
+
+      <div class="house"></div>
 
       <div class="back_mountain">
         <div class="bm_mt1"></div>
@@ -506,6 +971,43 @@
         <div class="fm_mt1"></div>
         <div class="fm_mt2"></div>
         <div class="fm_mt3"></div>
+      </div>
+
+      <div class="tree">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+
+        <div class="caracol">
+
+          <div class="brazo"></div>
+
+          <div class="c_cuerpo">
+            <div class="cc_base">
+              <div class="antena"></div>
+              <div class="antena"></div>
+
+              <div class="ojo"></div>
+              <div class="ojo"></div>
+              <div class="boca"></div>
+            </div>
+            <div class="cc_base"></div>
+          </div>
+
+          <div class="brazo"></div>
+
+          <div class="caparazon">
+            <div class="cc_shape"></div>
+            <div class="cc_shape"></div>
+            <div class="cc_shape"></div>
+            <div class="cc_shape"></div>
+            <div class="cc_shape"></div>
+          </div>
+
+        </div>
+
       </div>
     </div>
 
