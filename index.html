@@ -22,15 +22,6 @@
       --jake: #FEB925;
     }
 
-    /* body{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      width: 100%;
-
-    } */
-
     .canvas {
       display: flex;
       background-color: var(--sky);
@@ -43,8 +34,13 @@
       z-index: -7;
     }
 
+/**************************************************
+                        FINN
+*************************************************/
+
+
     .finn {
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -71,10 +67,14 @@
       width: 23em;
       background-color: rgba(0, 0, 0, 0.5);
       position: absolute;
-      bottom: -4.9em;
+      bottom: -4em;
       border-radius: 50%;
       z-index: -1;
     }
+
+    /**************************************************
+                Cabeza de FINN
+*************************************************/
 
     .head {
       height: 14em;
@@ -114,6 +114,9 @@
       animation-delay: 1.5s;
     }
 
+/**************************************************
+      Animaion de aparicion del dialogo
+*************************************************/
     @keyframes dialog {
       0% {
         opacity: 0;
@@ -166,15 +169,6 @@
       top: 1em;
     }
 
-    /* .hat_ear::after {
-      content: '';
-      background-color: white;
-      height: 3em;
-      width: 4em;
-      top: 100%;
-      position: absolute;
-    } */
-
     .hat_ear:nth-of-type(1) {
       left: 0;
       border-radius: 50em 50em 50em 0;
@@ -222,26 +216,27 @@
       animation-delay: 1.5s;
     }
 
+/**************************************************
+      Animacion de el movimiento de la boca
+*************************************************/
+
     @keyframes mouthAnimation {
 
-      0%,
-      25%,
-      50%,
-      75%,
-      100% {
+      0%,25%,50%,75%,100% {
         border: none;
         background-color: transparent;
         border-bottom: solid 3px black;
       }
 
-      12%,
-      37%,
-      62%,
-      87% {
+      12%,37%,62%,87% {
         background-color: #F99FA1;
         border: solid 3px black;
       }
     }
+
+/**************************************************
+            Cuerpo de finn
+*************************************************/
 
     .body {
       position: relative;
@@ -258,19 +253,23 @@
     }
 
     .arm,
-    .leg {
+    .legs,
+    .leg{
       position: absolute;
-      height: 20em;
+      height: 40em;
       width: 3em;
     }
 
     .arm {
-      background: linear-gradient(var(--shirt) 30%, var(--skin) 30%);
+      top: -19.5em;
+      background: linear-gradient(transparent 50%, var(--shirt) 50%, var(--shirt) 60%, var(--skin) 60%);
     }
 
     .arm:nth-of-type(1) {
       border-radius: 1em 0 1.2em 1.2em;
       left: -1em;
+      animation: armAnimation2 .3s forwards;
+      animation-delay: 4s;
     }
 
     .arm:nth-of-type(2) {
@@ -282,39 +281,21 @@
 
     @keyframes armAnimation {
       0% {
-        transform: rotateZ(0) translateY(0) translateX(0);
-      }
-
-      12% {
-        transform: rotateZ(-0.04turn) translateY(0em) translateX(1.2em);
-      }
-
-      25% {
-        transform: rotateZ(-0.08turn) translateY(1em) translateX(2.6em);
-      }
-
-      37% {
-        transform: rotateZ(-0.13turn) translateY(1.9em) translateX(5em);
-      }
-
-      50% {
-        transform: rotateZ(-0.17turn) translateY(3.9em) translateX(6.7em);
-      }
-
-      62% {
-        transform: rotateZ(-0.21turn) translateY(6em) translateX(8em);
-      }
-
-      75% {
-        transform: rotateZ(-0.26turn) translateY(8.7em) translateX(8.5em);
-      }
-
-      87% {
-        transform: rotateZ(-0.30turn) translateY(10.4em) translateX(8.4em);
+        transform: rotate(0);
       }
 
       100% {
-        transform: rotateZ(-0.35turn) translateY(12em) translateX(7.5em);
+        transform: rotate(-0.35turn) translateY(-2.5em);
+      }
+    }
+
+    @keyframes armAnimation2 {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(0.35turn) translateY(-2.5em);
       }
     }
 
@@ -326,8 +307,7 @@
       position: absolute;
     }
 
-    .finger:nth-of-type(1),
-    .finger:nth-of-type(3) {
+    .finger:nth-of-type(1) {
       right: 0em;
       bottom: -1.3em;
     }
@@ -337,17 +317,38 @@
       bottom: -1.5em;
     }
 
-    .leg {
-      top: 20em;
-      background: linear-gradient(var(--short) 30%, var(--skin) 30%);
+    .finger:nth-of-type(3) {
+      left: 0em;
+      bottom: -1.3em;
     }
 
-    .leg:nth-of-type(6) {
+    .leg {
+      top: 0em;
+      background: linear-gradient(transparent 50%, var(--short) 50%, var(--short) 60%, var(--skin) 60%);
+    }
+
+    .legs{
+      top: -1.5em;
+    }
+
+    .legs:nth-of-type(4) {
       left: 2em;
     }
 
-    .leg:nth-of-type(7) {
+    .legs:nth-of-type(5) {
       right: 2em;
+      animation: legAnimation .3s forwards;
+      animation-delay: 4s;
+    }
+
+    @keyframes legAnimation {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(-0.3turn);
+      }
     }
 
     .sock {
@@ -357,14 +358,7 @@
       background-color: white;
       top: 39em;
       border-radius: 50em;
-    }
-
-    .sock:nth-of-type(4) {
-      left: 1.5em;
-    }
-
-    .sock:nth-of-type(5) {
-      right: 1.5em;
+      left: -.5em;
     }
 
     .shoe {
@@ -376,12 +370,12 @@
       z-index: -1;
     }
 
-    .shoe:nth-of-type(8) {
-      left: 2em;
+    .shoe {
+      left: 0em;
     }
 
-    .shoe:nth-of-type(8)::after,
-    .shoe:nth-of-type(9)::after {
+    .shoe::after,
+    .shoe::after {
       content: '';
       height: 2em;
       width: 6em;
@@ -391,17 +385,13 @@
       border-radius: 50em;
     }
 
-    .shoe:nth-of-type(8)::after {
+    .legs:nth-of-type(4) .shoe::after {
       right: 0;
     }
 
-    .shoe:nth-of-type(9) {
-      right: 2em;
-    }
-
-    .shoe:nth-of-type(9)::after {
-      left: 0;
-    }
+/**************************************************
+                   FONDO
+*************************************************/
 
     .background {
       height: 26em;
@@ -412,7 +402,9 @@
       animation: backgroundCloseOut 1s forwards;
       animation-delay: 4s;
     }
-
+/**************************************************
+          Animacion de acercamiento del fondo
+*************************************************/
     @keyframes backgroundCloseOut {
       0% {
         transform: translateY(40em) scale(2);
@@ -516,6 +508,10 @@
       transform: rotate(0deg);
     }
 
+/**************************************************
+                    ARBOL
+*************************************************/
+
     .tree {
       height: 13em;
       width: 20em;
@@ -572,13 +568,26 @@
       right: -6em;
       z-index: 0;
     }
-
+/**************************************************
+                        CARACOL
+*************************************************/
     .caracol {
       height: 30em;
       width: 30em;
       position: absolute;
       top: -16em;
       transform: scale(0.2);
+    }
+
+    .caracol::after {
+      content: '';
+      height: 10em;
+      width: 30em;
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      bottom: -1em;
+      border-radius: 50%;
+      z-index: -1;
     }
 
     .caparazon * {
@@ -754,16 +763,23 @@
       animation: caracolAnimation .7s ease-in-out infinite;
     }
 
-    @keyframes caracolAnimation{
-      0%, 100%{
+    @keyframes caracolAnimation {
+
+      0%,
+      100% {
         transform: rotate(160deg);
       }
-      50%{
+
+      50% {
         transform: rotate(135deg);
       }
     }
 
-    .jake{
+/**************************************************
+                SOL JAKE
+*************************************************/
+
+    .jake {
       position: absolute;
       height: 13em;
       width: 13em;
@@ -776,16 +792,17 @@
       animation-delay: 4s;
     }
 
-    @keyframes jakeAnimation{
-      0%{
+    @keyframes jakeAnimation {
+      0% {
         transform: rotate(35deg) translate(-25em, -25em);
       }
-      100%{
+
+      100% {
         transform: rotate(35deg) translate(0, 0);
       }
     }
 
-    .j_ojo{
+    .j_ojo {
       background-color: black;
       height: 3em;
       width: 3em;
@@ -793,7 +810,7 @@
       position: absolute;
     }
 
-    .j_ojo::after{
+    .j_ojo::after {
       content: '';
       background-color: white;
       height: 2.5em;
@@ -804,17 +821,17 @@
       right: 0em;
     }
 
-    .j_ojo:nth-of-type(1){
+    .j_ojo:nth-of-type(1) {
       right: -0.2em;
       top: 3em;
     }
 
-    .j_ojo:nth-of-type(2){
+    .j_ojo:nth-of-type(2) {
       right: 6em;
       top: 3em;
     }
 
-    .bigote{
+    .bigote {
       background-color: var(--jake);
       height: 1.5em;
       width: 4.5em;
@@ -827,7 +844,7 @@
       top: 4.3em;
     }
 
-    .bigote::before{
+    .bigote::before {
       content: '';
       background-color: var(--jake);
       height: 2em;
@@ -840,7 +857,8 @@
       left: -3px;
       top: 1.2em;
     }
-    .bigote::after{
+
+    .bigote::after {
       content: '';
       background-color: var(--jake);
       height: 2em;
@@ -854,7 +872,7 @@
       top: 1.2em;
     }
 
-    .nariz{
+    .nariz {
       background-color: black;
       height: 2em;
       width: 2em;
@@ -864,7 +882,7 @@
       top: 4.7em;
     }
 
-    .j_boca{
+    .j_boca {
       background-color: transparent;
       height: 1.5em;
       width: 1.6em;
@@ -875,7 +893,7 @@
       top: 6.4em;
     }
 
-    .j_oreja{
+    .j_oreja {
       background-color: transparent;
       height: 2em;
       width: 1.4em;
@@ -888,7 +906,7 @@
       top: 5.3em;
     }
 
-    .rayo{
+    .rayo {
       height: 1.5em;
       width: 53em;
       position: absolute;
@@ -898,7 +916,7 @@
       animation: luz1 2.5s linear infinite;
     }
 
-    .rayo::after{
+    .rayo::after {
       content: '';
       height: 1.5em;
       width: 53em;
@@ -909,25 +927,27 @@
       transform: rotate(90deg);
     }
 
-    .rayo:last-of-type{
+    .rayo:last-of-type {
       transform: rotate(0.125turn);
       animation: luz2 2.5s linear infinite;
     }
 
-    @keyframes luz1{
-      0%{
+    @keyframes luz1 {
+      0% {
         transform: rotate(0);
       }
-      100%{
+
+      100% {
         transform: rotate(360deg);
       }
     }
 
-    @keyframes luz2{
-      0%{
+    @keyframes luz2 {
+      0% {
         transform: rotate(0.125turn);
       }
-      100%{
+
+      100% {
         transform: rotate(1.125turn);
       }
     }
@@ -1037,17 +1057,21 @@
           <div class="finger"></div>
           <div class="finger"></div>
         </div>
+
         <div class="shirt"></div>
 
-        <div class="sock"></div>
-        <div class="sock"></div>
+        <div class="legs">
+          <div class="sock"></div>
+          <div class="shoe"></div>
+          <div class="leg"></div>
+        </div>
 
-        <div class="leg"></div>
-        <div class="leg"></div>
+        <div class="legs">
+          <div class="sock"></div>
+          <div class="shoe"></div>
+          <div class="leg"></div>
+        </div>
 
-
-        <div class="shoe"></div>
-        <div class="shoe"></div>
       </div>
 
     </div>
